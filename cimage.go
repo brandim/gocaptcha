@@ -72,8 +72,8 @@ func (m *CImage) drawString(text string) *CImage {
 	i := 0
 	for _, s := range text {
 		c.SetFont(m.config.fontManager.GetRandomFont())
-		charX := (int(c.PointToFixed(m.config.FontSize) >> 8)) * i
-		charY := int(c.PointToFixed(m.config.FontSize) >> 8)
+		charX := (int(c.PointToFixed(m.config.FontSize)>>8)+20)*i + 5
+		charY := int(c.PointToFixed(m.config.FontSize)>>8) + 15
 		charPt := freetype.Pt(charX, charY)
 		c.DrawString(string(s), charPt)
 		i = i + 1
